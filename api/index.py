@@ -1,10 +1,8 @@
 import requests
 import pandas as pd
-import json
 import urllib.parse
-import re
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
 from http.server import BaseHTTPRequestHandler
 
 class handler(BaseHTTPRequestHandler):
