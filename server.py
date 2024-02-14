@@ -1,6 +1,8 @@
 import requests
 import pandas as pd
 import urllib.parse
+import os
+import socketserver
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 from http.server import BaseHTTPRequestHandler
@@ -58,3 +60,8 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(str(json_output).encode('utf-8'))
         return
+
+port = int(os.getenv('PORT', 80))
+print('Listening on port %s' % (port))
+httpd = socketserver.TCPServer(('', port), handler)
+httpd.serve_forever()
