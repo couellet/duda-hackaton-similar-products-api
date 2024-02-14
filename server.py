@@ -10,12 +10,10 @@ from http.server import BaseHTTPRequestHandler
 class handler(BaseHTTPRequestHandler):
  
     def do_GET(self):
-
-        self.path
-
         qs = urllib.parse.parse_qs(self.path)
 
-        product_id = qs.get('?productid')[0]
+        print(qs)
+        product_id = 'GmVQhqYE'
         url = 'https://product-recommendations-server.vercel.app/api/products'
 
         response = requests.get(url)
