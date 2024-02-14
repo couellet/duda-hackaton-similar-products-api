@@ -11,9 +11,7 @@ class handler(BaseHTTPRequestHandler):
  
     def do_GET(self):
         qs = urllib.parse.parse_qs(self.path)
-
-        print(qs)
-        product_id = 'GmVQhqYE'
+        product_id = qs.get('/?productid')[0]
         url = 'https://product-recommendations-server.vercel.app/api/products'
 
         response = requests.get(url)
